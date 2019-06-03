@@ -1,0 +1,26 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: hello-svc
+  namespace: prod
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: semver:~8.0
+spec:
+  releaseName: quote-svc-prod
+  chart:
+    git: ssh://git@github.com/<YOURNAME>/flux-state
+    ref: master
+    path: charts/quote-svc
+  values:
+    image:
+      repository: bashofmann/k8s-workshop-quote-svc
+      tag: 8.0.0
+    replicaCount: 2
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi

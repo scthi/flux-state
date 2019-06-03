@@ -1,0 +1,20 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: web-application
+  namespace: prod
+  labels:
+    app: web-application
+    workshop: workshop
+spec:
+  tls:
+    - hosts:
+        - web-application-prod.bastian.plgrnd.be
+  rules:
+    - host: web-application-prod.bastian.plgrnd.be
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: web-application
+              servicePort: 80
