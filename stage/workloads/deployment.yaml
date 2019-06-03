@@ -1,3 +1,4 @@
+---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -27,58 +28,58 @@ spec:
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchExpressions:
-                    - key: "app"
-                      operator: In
-                      values:
-                        - web-application
-                topologyKey: "kubernetes.io/hostname"
+          - weight: 1
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: "app"
+                  operator: In
+                  values:
+                  - web-application
+              topologyKey: "kubernetes.io/hostname"
       containers:
-        - name: web-application
-          image: bashofmann/k8s-workshop-web-application:8.0.1
-          imagePullPolicy: Always
-          env:
-            - name: DB_HOST
-              value: mysql-svc
-            - name: DB_USER
-              value: root
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: mysql-root-password
-                  name: mysql-secrets
-          envFrom:
-            - configMapRef:
-                name: web-application-config
-          volumeMounts:
-            - mountPath: /etc/web-application
-              name: web-application-secret
-          ports:
-            - containerPort: 80
-              name: http
-          resources:
-            requests:
-              cpu: 10m
-              memory: 32Mi
-            limits:
-              memory: 512Mi
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: http
-            timeoutSeconds: 1
-            initialDelaySeconds: 2
-            failureThreshold: 3
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: http
-            timeoutSeconds: 1
-            failureThreshold: 3
+      - name: web-application
+        image: bashofmann/k8s-workshop-web-application:tilt-5d9d0a18e7b05a7d
+        imagePullPolicy: Always
+        env:
+        - name: DB_HOST
+          value: mysql-svc
+        - name: DB_USER
+          value: root
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: mysql-root-password
+              name: mysql-secrets
+        envFrom:
+        - configMapRef:
+            name: web-application-config
+        volumeMounts:
+        - mountPath: /etc/web-application
+          name: web-application-secret
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          timeoutSeconds: 1
+          initialDelaySeconds: 2
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: http
+          timeoutSeconds: 1
+          failureThreshold: 3
       volumes:
-        - name: web-application-secret
-          secret:
-            secretName: web-application-secret
+      - name: web-application-secret
+        secret:
+          secretName: web-application-secret
