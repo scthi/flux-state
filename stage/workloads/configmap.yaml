@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: web-application-config
+  namespace: stage
+  labels:
+    app: web-application
+    workshop: workshop
+data:
+  COMPANY_NAME: Acme Inc.
