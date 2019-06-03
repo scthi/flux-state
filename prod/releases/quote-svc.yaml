@@ -1,7 +1,7 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: hello-svc
+  name: quote-svc
   namespace: prod
   annotations:
     flux.weave.works/automated: "true"
