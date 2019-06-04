@@ -39,7 +39,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
       - name: web-application
-        image: bashofmann/k8s-workshop-web-application:tilt-5d9d0a18e7b05a7d
+        image: bashofmann/k8s-workshop-web-application:tilt-bbe54064f45fc178
         imagePullPolicy: Always
         env:
         - name: DB_HOST
