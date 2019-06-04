@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: bashofmann/k8s-workshop-hello-svc
-      tag: 5.0.1
+      tag: 5.1.0
     replicaCount: 2
     resources:
       limits:
