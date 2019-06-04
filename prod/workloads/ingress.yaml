@@ -9,9 +9,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web-application-prod.bastian.plgrnd.be
+        - web-application-prod.thilo.plgrnd.be
   rules:
-    - host: web-application-prod.bastian.plgrnd.be
+    - host: web-application-prod.thilo.plgrnd.be
       http:
         paths:
           - path: /

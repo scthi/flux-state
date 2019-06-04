@@ -9,7 +9,7 @@ metadata:
 spec:
   releaseName: hello-svc-stage
   chart:
-    git: ssh://git@github.com/bashofmann/flux-state
+    git: ssh://git@github.com/scthi/flux-state
     ref: master
     path: charts/hello-svc
   values:
@@ -17,10 +17,10 @@ spec:
       repository: bashofmann/k8s-workshop-hello-svc
       tag: 5.0.0
     replicaCount: 2
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 50m
-      memory: 128Mi
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 128Mi

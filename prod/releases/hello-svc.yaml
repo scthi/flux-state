@@ -9,7 +9,7 @@ metadata:
 spec:
   releaseName: hello-svc-prod
   chart:
-    git: ssh://git@github.com/bashofmann/flux-state
+    git: ssh://git@github.com/scthi/flux-state
     ref: master
     path: charts/hello-svc
   values:

@@ -9,9 +9,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web-application-stage.bastian.plgrnd.be
+        - web-application-stage.thilo.plgrnd.be
   rules:
-    - host: web-application-stage.bastian.plgrnd.be
+    - host: web-application-stage.thilo.plgrnd.be
       http:
         paths:
           - path: /
