@@ -9,7 +9,7 @@ metadata:
 spec:
   releaseName: quote-svc-stage
   chart:
-    git: ssh://git@github.com/bashofmann/flux-state
+    git: ssh://git@github.com/scthi/flux-state
     ref: master
     path: charts/quote-svc
   values:
