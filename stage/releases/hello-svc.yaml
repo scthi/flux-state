@@ -6,7 +6,7 @@ metadata:
   namespace: stage
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: semver:~5.1
+    flux.weave.works/tag.chart-image: semver:~5.0
 spec:
   releaseName: hello-svc-stage
   chart:
@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: bashofmann/k8s-workshop-hello-svc
-      tag: 5.1.0
+      tag: 5.0.1
     replicaCount: 2
     resources:
       limits:
