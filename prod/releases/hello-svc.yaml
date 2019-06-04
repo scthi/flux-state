@@ -1,3 +1,4 @@
+---
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
@@ -15,7 +16,7 @@ spec:
   values:
     image:
       repository: bashofmann/k8s-workshop-hello-svc
-      tag: 5.0.0
+      tag: 5.0.1
     replicaCount: 2
     resources:
       limits:
