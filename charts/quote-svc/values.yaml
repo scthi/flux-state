@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: scthi/k8s-workshop-quote-svc
+  repository: bashofmann/k8s-workshop-quote-svc
   tag: stable
   pullPolicy: IfNotPresent
 
